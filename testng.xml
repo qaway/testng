@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="First test suite">
+    <test name="Triangle tests">
+        <classes>
+            <class name="ru.qaway.testng.TriangleTest"/>
+            <class name="ru.qaway.testng.AnotherOneTriangleTest"/>
+        </classes>
+    </test>
+    <test name="Triangle demo">
+        <classes>
+            <class name="ru.qaway.testng.TriangleTest"/>
+        </classes>
+    </test>
+</suite>
