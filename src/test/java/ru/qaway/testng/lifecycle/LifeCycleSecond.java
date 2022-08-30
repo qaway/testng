@@ -9,8 +9,7 @@ import java.lang.reflect.Method;
 public class LifeCycleSecond extends LifeCycleTestBase {
 
     @BeforeTest
-    public void beforeTest(XmlTest xmlTest) {
-        super.beforeTest(xmlTest);
+    public void beforeTest2(XmlTest xmlTest) {
         System.out.printf("\tBeforeTest (from child) : %s <%s>\n", getClass().getSimpleName(), xmlTest.getName());
     }
 
