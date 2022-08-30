@@ -1,34 +1,27 @@
 package ru.qaway.testng;
 
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class TriangleTest {
 
-    @Test(description = "Check input is triangle", groups = "triangle")
-    public void testTriangle() {
-        String result = Triangle.isTriangle("4 5 6");
-        Assert.assertEquals(result, Triangle.TRIANGLE, "Input is triangle");
+    @Test(description = "Check input is triangle", dataProvider = "triangle")
+    public void testTriangle(String input, String expected) {
+        String result = Triangle.isTriangle(input);
+        Assert.assertEquals(result, expected, "Input is " + expected);
     }
 
-    @Test(description = "Check input is equilateral triangle",
-            groups = "triangle.spec")
-    public void testEquilateralTriangle() {
-        String result = Triangle.isTriangle("4 5 6");
-        Assert.assertEquals(result, Triangle.EQUILATERAL, "Input is equilateral triangle");
-    }
+    @DataProvider
+    public Object[][] triangle() {
+        return new Object[][] {
+                { "4 4 4", Triangle.EQUILATERAL},
 
-    @Test(description = "Check input is isosceles triangle",
-            groups = "triangle.spec")
-    public void testIsoscelesTriangle() {
-        String result = Triangle.isTriangle("4 6 6");
-        Assert.assertEquals(result, Triangle.ISOSCELES, "Input is isosceles triangle");
-    }
+                { "4 5 4", Triangle.ISOSCELES},
 
-    @Test(description = "Check input is not triangle",
-            dependsOnGroups = "triangle.*", alwaysRun = true)
-    public void testNotTriangle() {
-        String result = Triangle.isTriangle("4 5 20");
-        Assert.assertEquals(result, Triangle.NOT_TRIANGLE, "Input is not triangle");
+                { "4 5 6", Triangle.TRIANGLE},
+
+                { "4 5 20", Triangle.NOT_TRIANGLE},
+        };
     }
 }
