@@ -1,7 +1,16 @@
 <suite name="First test suite">
+    <parameter name="browser" value="firefox"/>
+    <parameter name="users" value="5"/>
+
     <test name="Smoke tests">
-        <parameter name="browser" value="firefox"/>
-        <parameter name="users" value="5"/>
+        <classes>
+            <class name="ru.qaway.testng.ParametersTest"/>
+        </classes>
+    </test>
+
+    <test name="Full cycle tests">
+        <parameter name="browser" value="chrome"/>
+        <parameter name="users" value="20"/>
 
         <classes>
             <class name="ru.qaway.testng.ParametersTest"/>
