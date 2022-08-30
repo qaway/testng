@@ -6,4 +6,10 @@
             <class name="ru.qaway.testng.lifecycle.LifeCycleFirst"/>
         </classes>
     </test>
+
+    <test name="LifeCycle second test">
+        <classes>
+            <class name="ru.qaway.testng.lifecycle.LifeCycleSecond"/>
+        </classes>
+    </test>
 </suite>
