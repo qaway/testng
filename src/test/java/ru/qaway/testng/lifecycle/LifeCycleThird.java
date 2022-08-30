@@ -1,5 +1,6 @@
 package ru.qaway.testng.lifecycle;
 
+import org.testng.ITestContext;
 import org.testng.annotations.*;
 import org.testng.xml.XmlTest;
 
@@ -13,8 +14,8 @@ public class LifeCycleThird extends LifeCycleTestBase {
         System.out.println("BeforeClass");
     }
 
-    @BeforeGroups(groups = {"first-group"})
-    public void beforeGroups() {
+    @BeforeGroups(groups = {"first-group", "second-group"})
+    public void beforeGroups(ITestContext testContext) {
         System.out.println("\tBeforeGroup");
     }
 
@@ -28,12 +29,22 @@ public class LifeCycleThird extends LifeCycleTestBase {
         printTestInfo(method);
     }
 
+    @Test(groups = {"first-group", "second-group"})
+    public void lifeCycleTest2(Method method) {
+        printTestInfo(method);
+    }
+
+    @Test(groups = {"second-group"})
+    public void lifeCycleTest3(Method method) {
+        printTestInfo(method);
+    }
+
     @AfterMethod
     public void afterMethod(Method method) {
         System.out.printf("\t\tAfterMethod : %s.%s\n", getClass().getSimpleName(), method.getName());
     }
 
-    @AfterGroups(groups = {"first-group"})
+    @AfterGroups(groups = {"first-group", "second-group"})
     public void afterGroups() {
         System.out.println("\tAfterGroup");
     }
