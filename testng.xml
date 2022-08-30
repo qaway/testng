@@ -1,15 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
 <suite name="First test suite">
-    <test name="Triangle tests">
+    <test name="Smoke tests">
+        <parameter name="browser" value="firefox"/>
+        <parameter name="users" value="5"/>
+
         <classes>
-            <class name="ru.qaway.testng.TriangleTest"/>
-            <class name="ru.qaway.testng.AnotherOneTriangleTest"/>
-        </classes>
-    </test>
-    <test name="Triangle demo">
-        <classes>
-            <class name="ru.qaway.testng.TriangleTest"/>
+            <class name="ru.qaway.testng.ParametersTest"/>
         </classes>
     </test>
 </suite>
